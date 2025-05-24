@@ -215,32 +215,6 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Personal Bio */}
-          <Card className="glass-effect mb-12">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 gradient-text">Who I Am</h3>
-              <div className="text-gray-300 space-y-4">
-                <p className="text-lg leading-relaxed">
-                  I'm an energetic, honest, and self-motivated student currently pursuing my Bachelor's degree in 
-                  Artificial Intelligence and Machine Learning at Bhartiya Vidyapeeth Deemed University with a CGPA of 8.64. 
-                  My journey in technology began with a deep curiosity about how intelligent systems work and how they can 
-                  solve real-world problems.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  What drives me is the intersection of creativity and logic in programming. I believe in writing clean, 
-                  efficient code and creating solutions that not only work but also provide exceptional user experiences. 
-                  My approach to development is methodical yet innovative, always looking for ways to leverage the latest 
-                  technologies to build something meaningful.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Beyond technical skills, I value collaboration, continuous learning, and integrity in everything I do. 
-                  I'm particularly passionate about machine learning applications, API integrations, and creating intelligent 
-                  automation solutions that can make a real difference in people's lives and business operations.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Technical Skills */}
             <Card className="glass-effect">
@@ -263,32 +237,8 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Educational Background */}
-            <Card className="glass-effect">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 gradient-text">Educational Journey</h3>
-                <div className="space-y-6">
-                  <div className="border-l-2 border-purple-400 pl-6">
-                    <div className="text-sm text-purple-400 font-medium">2023 - 2026</div>
-                    <h4 className="text-lg font-semibold text-white">Bachelor's Degree</h4>
-                    <p className="text-gray-300">Bhartiya Vidyapeeth Deemed University</p>
-                    <p className="text-sm text-gray-400">AI & Machine Learning • CGPA: 8.64</p>
-                  </div>
-                  <div className="border-l-2 border-blue-400 pl-6">
-                    <div className="text-sm text-blue-400 font-medium">2020 - 2023</div>
-                    <h4 className="text-lg font-semibold text-white">Diploma</h4>
-                    <p className="text-gray-300">Government Polytechnic Mumbai</p>
-                    <p className="text-sm text-gray-400">1st Class Distinction • 70%</p>
-                  </div>
-                  <div className="border-l-2 border-pink-400 pl-6">
-                    <div className="text-sm text-pink-400 font-medium">2010 - 2020</div>
-                    <h4 className="text-lg font-semibold text-white">SSC</h4>
-                    <p className="text-gray-300">PVG Vidya Bhawan School</p>
-                    <p className="text-sm text-gray-400">Grade: 81.80%</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            {/* Placeholder for balance - could be used for other content */}
+            <div></div>
           </div>
 
           {/* Work Experience */}
