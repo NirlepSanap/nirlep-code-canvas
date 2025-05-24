@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -218,12 +219,12 @@ const Index = () => {
           {/* Technical Skills - Full Width */}
           <Card className="glass-effect mb-12">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 gradient-text">Technical Skills</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-bold mb-6 gradient-text text-center">Technical Skills</h3>
+              <div className="max-w-4xl mx-auto space-y-6">
                 {skills.map((skillCategory, index) => (
-                  <div key={index}>
-                    <h4 className="text-lg font-semibold text-white mb-2">{skillCategory.category}</h4>
-                    <div className="flex flex-wrap gap-2">
+                  <div key={index} className="text-center">
+                    <h4 className="text-lg font-semibold text-white mb-3">{skillCategory.category}</h4>
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {skillCategory.items.map((skill, skillIndex) => (
                         <Badge key={skillIndex} variant="secondary" className="bg-purple-900/30 text-purple-300 border-purple-500/30">
                           {skill}
