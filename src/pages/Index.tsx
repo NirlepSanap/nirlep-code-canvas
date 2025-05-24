@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -103,6 +102,37 @@ const Index = () => {
     }
   ];
 
+  const workExperience = [
+    {
+      position: "Full Stack Developer",
+      company: "Agrawal Packers and Movers Ltd",
+      duration: "Feb 2023 - July 2023",
+      type: "Full-time",
+      responsibilities: [
+        "Developed and maintained web applications using React.js and Node.js",
+        "Implemented responsive user interfaces with modern CSS frameworks",
+        "Integrated backend APIs and managed database operations",
+        "Collaborated with cross-functional teams to deliver high-quality solutions",
+        "Optimized application performance and user experience"
+      ],
+      technologies: ["React.js", "Node.js", "JavaScript", "CSS", "MongoDB"]
+    },
+    {
+      position: "Frontend Developer Intern",
+      company: "Winsple",
+      duration: "Jan 2023 - Feb 2023",
+      type: "Internship",
+      responsibilities: [
+        "Developed user-friendly web interfaces using HTML, CSS, and JavaScript",
+        "Worked closely with design team to implement pixel-perfect layouts",
+        "Gained hands-on experience with modern frontend development practices",
+        "Participated in code reviews and learned industry best practices",
+        "Contributed to improving website performance and accessibility"
+      ],
+      technologies: ["HTML", "CSS", "JavaScript", "React.js"]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-dark-gradient">
       {/* Navigation */}
@@ -180,16 +210,63 @@ const Index = () => {
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
               <span className="gradient-text">About Me</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Currently pursuing my degree in AI & ML with a strong foundation in full-stack development
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+              A passionate and driven AI & Machine Learning student with hands-on experience in full-stack development
             </p>
           </div>
 
+          {/* Personal Bio */}
+          <Card className="glass-effect mb-12">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold mb-6 gradient-text">Who I Am</h3>
+              <div className="text-gray-300 space-y-4">
+                <p className="text-lg leading-relaxed">
+                  I'm an energetic, honest, and self-motivated student currently pursuing my Bachelor's degree in 
+                  Artificial Intelligence and Machine Learning at Bhartiya Vidyapeeth Deemed University with a CGPA of 8.64. 
+                  My journey in technology began with a deep curiosity about how intelligent systems work and how they can 
+                  solve real-world problems.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  What drives me is the intersection of creativity and logic in programming. I believe in writing clean, 
+                  efficient code and creating solutions that not only work but also provide exceptional user experiences. 
+                  My approach to development is methodical yet innovative, always looking for ways to leverage the latest 
+                  technologies to build something meaningful.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Beyond technical skills, I value collaboration, continuous learning, and integrity in everything I do. 
+                  I'm particularly passionate about machine learning applications, API integrations, and creating intelligent 
+                  automation solutions that can make a real difference in people's lives and business operations.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Education Timeline */}
+            {/* Technical Skills */}
             <Card className="glass-effect">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 gradient-text">Education</h3>
+                <h3 className="text-2xl font-bold mb-6 gradient-text">Technical Skills</h3>
+                <div className="space-y-4">
+                  {skills.map((skillCategory, index) => (
+                    <div key={index}>
+                      <h4 className="text-lg font-semibold text-white mb-2">{skillCategory.category}</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {skillCategory.items.map((skill, skillIndex) => (
+                          <Badge key={skillIndex} variant="secondary" className="bg-purple-900/30 text-purple-300 border-purple-500/30">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Educational Background */}
+            <Card className="glass-effect">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-6 gradient-text">Educational Journey</h3>
                 <div className="space-y-6">
                   <div className="border-l-2 border-purple-400 pl-6">
                     <div className="text-sm text-purple-400 font-medium">2023 - 2026</div>
@@ -212,57 +289,56 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Skills */}
-            <Card className="glass-effect">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 gradient-text">Technical Skills</h3>
-                <div className="space-y-4">
-                  {skills.map((skillCategory, index) => (
-                    <div key={index}>
-                      <h4 className="text-lg font-semibold text-white mb-2">{skillCategory.category}</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {skillCategory.items.map((skill, skillIndex) => (
-                          <Badge key={skillIndex} variant="secondary" className="bg-purple-900/30 text-purple-300 border-purple-500/30">
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Work Experience */}
-          <Card className="glass-effect mt-12">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 gradient-text">Work Experience</h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Briefcase className="w-6 h-6 text-purple-400" />
-                    <div>
-                      <h4 className="text-lg font-semibold text-white">Full Stack Developer</h4>
-                      <p className="text-gray-300">Agrawal Packers and Movers Ltd</p>
-                      <p className="text-sm text-gray-400">Feb 2023 - July 2023</p>
+          <div className="mt-12 space-y-8">
+            <h3 className="text-2xl font-bold gradient-text text-center">Professional Experience</h3>
+            {workExperience.map((experience, index) => (
+              <Card key={index} className="glass-effect">
+                <CardContent className="p-8">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                    <div className="flex items-center gap-3 mb-2 md:mb-0">
+                      <Briefcase className="w-6 h-6 text-purple-400" />
+                      <div>
+                        <h4 className="text-xl font-semibold text-white">{experience.position}</h4>
+                        <p className="text-gray-300">{experience.company}</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm text-purple-400 font-medium">{experience.duration}</p>
+                      <Badge variant="secondary" className="bg-blue-900/30 text-blue-300 border-blue-500/30 mt-1">
+                        {experience.type}
+                      </Badge>
                     </div>
                   </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Code className="w-6 h-6 text-blue-400" />
-                    <div>
-                      <h4 className="text-lg font-semibold text-white">Frontend Developer Intern</h4>
-                      <p className="text-gray-300">Winsple</p>
-                      <p className="text-sm text-gray-400">Jan 2023 - Feb 2023</p>
+                  
+                  <div className="mb-4">
+                    <h5 className="text-lg font-medium text-white mb-3">Key Responsibilities:</h5>
+                    <ul className="space-y-2">
+                      {experience.responsibilities.map((responsibility, respIndex) => (
+                        <li key={respIndex} className="text-gray-300 flex items-start">
+                          <span className="text-purple-400 mr-2">•</span>
+                          {responsibility}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h5 className="text-lg font-medium text-white mb-3">Technologies Used:</h5>
+                    <div className="flex flex-wrap gap-2">
+                      {experience.technologies.map((tech, techIndex) => (
+                        <Badge key={techIndex} variant="outline" className="text-gray-300 border-gray-600">
+                          {tech}
+                        </Badge>
+                      ))}
                     </div>
                   </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
