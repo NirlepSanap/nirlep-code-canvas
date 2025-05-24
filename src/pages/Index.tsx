@@ -215,34 +215,29 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Technical Skills */}
-            <Card className="glass-effect">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 gradient-text">Technical Skills</h3>
-                <div className="space-y-4">
-                  {skills.map((skillCategory, index) => (
-                    <div key={index}>
-                      <h4 className="text-lg font-semibold text-white mb-2">{skillCategory.category}</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {skillCategory.items.map((skill, skillIndex) => (
-                          <Badge key={skillIndex} variant="secondary" className="bg-purple-900/30 text-purple-300 border-purple-500/30">
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
+          {/* Technical Skills - Full Width */}
+          <Card className="glass-effect mb-12">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold mb-6 gradient-text">Technical Skills</h3>
+              <div className="space-y-4">
+                {skills.map((skillCategory, index) => (
+                  <div key={index}>
+                    <h4 className="text-lg font-semibold text-white mb-2">{skillCategory.category}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skillCategory.items.map((skill, skillIndex) => (
+                        <Badge key={skillIndex} variant="secondary" className="bg-purple-900/30 text-purple-300 border-purple-500/30">
+                          {skill}
+                        </Badge>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Placeholder for balance - could be used for other content */}
-            <div></div>
-          </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Work Experience */}
-          <div className="mt-12 space-y-8">
+          <div className="space-y-8">
             <h3 className="text-2xl font-bold gradient-text text-center">Professional Experience</h3>
             {workExperience.map((experience, index) => (
               <Card key={index} className="glass-effect">
