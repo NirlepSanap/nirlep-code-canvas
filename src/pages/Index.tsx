@@ -179,8 +179,12 @@ const Index = () => {
           </div>
           <div className="relative animate-scale-in" style={{ animationDelay: "0.4s" }}>
             <div className="w-80 h-80 mx-auto bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 rounded-full p-1 hover:scale-105 transition-transform duration-500">
-              <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center">
-                <User className="w-32 h-32 text-gray-400 animate-pulse" />
+              <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
+                <img 
+                  src="https://i.postimg.cc/HWBKrqrh/linkdin-profile.jpg" 
+                  alt="Nirlep Sanap Profile" 
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
             </div>
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center animate-bounce">
