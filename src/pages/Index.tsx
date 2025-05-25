@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,9 +6,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, Code, User, Briefcase, FileText, Github, Link } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,12 +47,59 @@ const Index = () => {
     }
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon."
-    });
+    setIsSubmitting(true);
+
+    try {
+      console.log('Sending email with data:', formData);
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Nirlep Sanap'
+      };
+
+      await emailjs.send(
+        'service_v6dz3yi',
+        'template_k90rwbd',
+        templateParams,
+        'yE6OmDWzM7PRgteuG'
+      );
+
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for your message. I'll get back to you soon."
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to Send Message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const skills = [{
@@ -416,13 +470,47 @@ const Index = () => {
                 <h3 className="text-2xl font-bold mb-6 gradient-text">Send a Message</h3>
                 <form onSubmit={handleContactSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Input placeholder="Your Name" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" required />
-                    <Input type="email" placeholder="Your Email" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" required />
+                    <Input 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your Name" 
+                      className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" 
+                      required 
+                    />
+                    <Input 
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Your Email" 
+                      className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" 
+                      required 
+                    />
                   </div>
-                  <Input placeholder="Subject" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" required />
-                  <Textarea placeholder="Your Message" rows={5} className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" required />
-                  <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25">
-                    Send Message
+                  <Input 
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    placeholder="Subject" 
+                    className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" 
+                    required 
+                  />
+                  <Textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Your Message" 
+                    rows={5} 
+                    className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" 
+                    required 
+                  />
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
