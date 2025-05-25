@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, Code, User, Briefcase, FileText, Github, Link } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "about", "services", "portfolio", "contact"];
@@ -27,6 +30,7 @@ const Index = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -35,6 +39,7 @@ const Index = () => {
       });
     }
   };
+
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -42,6 +47,7 @@ const Index = () => {
       description: "Thank you for your message. I'll get back to you soon."
     });
   };
+
   const skills = [{
     category: "Programming",
     items: ["C", "C++", "Python", "R"]
@@ -61,6 +67,7 @@ const Index = () => {
     category: "Databases",
     items: ["SQL", "MongoDB", "Database Design"]
   }];
+
   const projects = [{
     title: "WhatsApp AI Chatbot",
     description: "Intelligent chatbot using Glitch platform and Meta API for automated customer interactions",
@@ -82,6 +89,7 @@ const Index = () => {
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js"],
     type: "Full Stack"
   }];
+
   const services = [{
     icon: <Code className="w-8 h-8" />,
     title: "Full Stack Web Development",
@@ -95,6 +103,7 @@ const Index = () => {
     title: "API Integration & Automation",
     description: "Seamless API integrations and automated workflows using various platforms"
   }];
+
   const workExperience = [{
     position: "Full Stack Developer",
     company: "Agrawal Packers and Movers Ltd",
@@ -110,16 +119,26 @@ const Index = () => {
     responsibilities: ["Developed user-friendly web interfaces using HTML, CSS, and JavaScript", "Worked closely with design team to implement pixel-perfect layouts", "Gained hands-on experience with modern frontend development practices", "Participated in code reviews and learned industry best practices", "Contributed to improving website performance and accessibility"],
     technologies: ["HTML", "CSS", "JavaScript", "React.js"]
   }];
+
   return <div className="min-h-screen bg-dark-gradient">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 glass-effect">
+      <nav className="fixed top-0 w-full z-50 glass-effect animate-fade-in">
         <div className="max-w-7xl mx-auto section-padding py-4">
           <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold gradient-text">Nirlep Sanap</div>
+            <div className="text-2xl font-bold gradient-text animate-scale-in">Nirlep Sanap</div>
             <div className="hidden md:flex space-x-8">
-              {["Home", "About", "Services", "Portfolio", "Contact"].map(item => <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className={`text-sm font-medium transition-colors hover:text-purple-400 ${activeSection === item.toLowerCase() ? "text-purple-400" : "text-gray-300"}`}>
+              {["Home", "About", "Services", "Portfolio", "Contact"].map((item, index) => (
+                <button 
+                  key={item} 
+                  onClick={() => scrollToSection(item.toLowerCase())} 
+                  className={`text-sm font-medium transition-all duration-300 hover:text-purple-400 hover:scale-110 transform ${
+                    activeSection === item.toLowerCase() ? "text-purple-400 scale-110" : "text-gray-300"
+                  }`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
                   {item}
-                </button>)}
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -131,34 +150,44 @@ const Index = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold">
-                <span className="gradient-text">Full Stack Developer</span>
+                <span className="gradient-text animate-gradient-shift">Full Stack Developer</span>
                 <br />
-                <span className="text-white">& Data Scientist</span>
+                <span className="text-white animate-fade-in" style={{ animationDelay: "0.2s" }}>& Data Scientist</span>
                 <br />
-                <span className="text-gray-400 text-2xl lg:text-3xl"></span>
+                <span className="text-gray-400 text-2xl lg:text-3xl animate-fade-in" style={{ animationDelay: "0.4s" }}></span>
               </h1>
-              <p className="text-xl text-gray-300 max-w-2xl">
+              <p className="text-xl text-gray-300 max-w-2xl animate-fade-in" style={{ animationDelay: "0.6s" }}>
                 An energetic, honest, and self-motivated AI & Machine Learning student with a passion 
                 for creating innovative web solutions and intelligent systems.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button onClick={() => scrollToSection("portfolio")} className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.8s" }}>
+              <Button 
+                onClick={() => scrollToSection("portfolio")} 
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+              >
                 View My Work
               </Button>
-              <Button variant="outline" onClick={() => scrollToSection("contact")} className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3 text-lg">
+              <Button 
+                variant="outline" 
+                onClick={() => scrollToSection("contact")} 
+                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3 text-lg transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-400/25"
+              >
                 Contact Me
               </Button>
             </div>
           </div>
-          <div className="relative animate-scale-in">
-            <div className="w-80 h-80 mx-auto bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 rounded-full p-1">
+          <div className="relative animate-scale-in" style={{ animationDelay: "0.4s" }}>
+            <div className="w-80 h-80 mx-auto bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 rounded-full p-1 hover:scale-105 transition-transform duration-500">
               <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center">
-                <User className="w-32 h-32 text-gray-400" />
+                <User className="w-32 h-32 text-gray-400 animate-pulse" />
               </div>
             </div>
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center animate-pulse">
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center animate-bounce">
               <Code className="w-12 h-12 text-white" />
+            </div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center animate-pulse" style={{ animationDelay: "1s" }}>
+              <Briefcase className="w-8 h-8 text-white" />
             </div>
           </div>
         </div>
@@ -167,8 +196,8 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 section-padding">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 hover:scale-105 transition-transform duration-300">
               <span className="gradient-text">About Me</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto">
@@ -177,38 +206,48 @@ const Index = () => {
           </div>
 
           {/* Technical Skills - Full Width */}
-          <Card className="glass-effect mb-12">
+          <Card className="glass-effect mb-12 animate-fade-in hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10" style={{ animationDelay: "0.2s" }}>
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6 gradient-text text-center">Technical Skills</h3>
               <div className="max-w-4xl mx-auto space-y-6">
-                {skills.map((skillCategory, index) => <div key={index} className="text-center">
-                    <h4 className="text-lg font-semibold text-white mb-3">{skillCategory.category}</h4>
+                {skills.map((skillCategory, index) => (
+                  <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
+                    <h4 className="text-lg font-semibold text-white mb-3 hover:text-purple-400 transition-colors duration-300">{skillCategory.category}</h4>
                     <div className="flex flex-wrap gap-2 justify-center">
-                      {skillCategory.items.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary" className="bg-purple-900/30 text-purple-300 border-purple-500/30">
+                      {skillCategory.items.map((skill, skillIndex) => (
+                        <Badge 
+                          key={skillIndex} 
+                          variant="secondary" 
+                          className="bg-purple-900/30 text-purple-300 border-purple-500/30 hover:bg-purple-800/50 hover:scale-110 transition-all duration-300 cursor-pointer animate-fade-in"
+                          style={{ animationDelay: `${(index * 150) + (skillIndex * 50)}ms` }}
+                        >
                           {skill}
-                        </Badge>)}
+                        </Badge>
+                      ))}
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
 
           {/* Work Experience */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold gradient-text text-center">Professional Experience</h3>
-            {workExperience.map((experience, index) => <Card key={index} className="glass-effect">
+            <h3 className="text-2xl font-bold gradient-text text-center animate-fade-in">Professional Experience</h3>
+            {workExperience.map((experience, index) => (
+              <Card key={index} className="glass-effect animate-fade-in hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10" style={{ animationDelay: `${index * 200}ms` }}>
                 <CardContent className="p-8">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                    <div className="flex items-center gap-3 mb-2 md:mb-0">
-                      <Briefcase className="w-6 h-6 text-purple-400" />
+                    <div className="flex items-center gap-3 mb-2 md:mb-0 group">
+                      <Briefcase className="w-6 h-6 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                       <div>
-                        <h4 className="text-xl font-semibold text-white">{experience.position}</h4>
+                        <h4 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors duration-300">{experience.position}</h4>
                         <p className="text-gray-300">{experience.company}</p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-purple-400 font-medium">{experience.duration}</p>
-                      <Badge variant="secondary" className="bg-blue-900/30 text-blue-300 border-blue-500/30 mt-1">
+                      <Badge variant="secondary" className="bg-blue-900/30 text-blue-300 border-blue-500/30 mt-1 hover:bg-blue-800/50 transition-colors duration-300">
                         {experience.type}
                       </Badge>
                     </div>
@@ -217,23 +256,32 @@ const Index = () => {
                   <div className="mb-4">
                     <h5 className="text-lg font-medium text-white mb-3">Key Responsibilities:</h5>
                     <ul className="space-y-2">
-                      {experience.responsibilities.map((responsibility, respIndex) => <li key={respIndex} className="text-gray-300 flex items-start">
+                      {experience.responsibilities.map((responsibility, respIndex) => (
+                        <li key={respIndex} className="text-gray-300 flex items-start animate-fade-in hover:text-white transition-colors duration-300" style={{ animationDelay: `${(index * 200) + (respIndex * 100)}ms` }}>
                           <span className="text-purple-400 mr-2">•</span>
                           {responsibility}
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   
                   <div>
                     <h5 className="text-lg font-medium text-white mb-3">Technologies Used:</h5>
                     <div className="flex flex-wrap gap-2">
-                      {experience.technologies.map((tech, techIndex) => <Badge key={techIndex} variant="outline" className="text-gray-300 border-gray-600">
+                      {experience.technologies.map((tech, techIndex) => (
+                        <Badge 
+                          key={techIndex} 
+                          variant="outline" 
+                          className="text-gray-300 border-gray-600 hover:text-white hover:border-purple-400 hover:scale-105 transition-all duration-300"
+                        >
                           {tech}
-                        </Badge>)}
+                        </Badge>
+                      ))}
                     </div>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -241,8 +289,8 @@ const Index = () => {
       {/* Services Section */}
       <section id="services" className="py-20 section-padding bg-black/20">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 hover:scale-105 transition-transform duration-300">
               <span className="gradient-text">Services</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -251,13 +299,15 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => <Card key={index} className="glass-effect hover:scale-105 transition-transform duration-300">
+            {services.map((service, index) => (
+              <Card key={index} className="glass-effect hover:scale-105 transition-all duration-500 animate-fade-in group hover:shadow-xl hover:shadow-purple-500/20" style={{ animationDelay: `${index * 200}ms` }}>
                 <CardContent className="p-8 text-center">
-                  <div className="text-purple-400 mb-4 flex justify-center">{service.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
-                  <p className="text-gray-300">{service.description}</p>
+                  <div className="text-purple-400 mb-4 flex justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">{service.icon}</div>
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors duration-300">{service.title}</h3>
+                  <p className="text-gray-300 group-hover:text-white transition-colors duration-300">{service.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -265,8 +315,8 @@ const Index = () => {
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 section-padding">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 hover:scale-105 transition-transform duration-300">
               <span className="gradient-text">Featured Projects</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -275,32 +325,40 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => <Card key={index} className="glass-effect hover:scale-105 transition-transform duration-300">
+            {projects.map((project, index) => (
+              <Card key={index} className="glass-effect hover:scale-105 transition-all duration-500 animate-fade-in group hover:shadow-xl hover:shadow-blue-500/20" style={{ animationDelay: `${index * 150}ms` }}>
                 <CardContent className="p-8">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                    <Badge variant="secondary" className="bg-purple-900/30 text-purple-300 border-purple-500/30">
+                    <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">{project.title}</h3>
+                    <Badge variant="secondary" className="bg-purple-900/30 text-purple-300 border-purple-500/30 group-hover:bg-purple-800/50 transition-colors duration-300">
                       {project.type}
                     </Badge>
                   </div>
-                  <p className="text-gray-300 mb-6">{project.description}</p>
+                  <p className="text-gray-300 mb-6 group-hover:text-white transition-colors duration-300">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech, techIndex) => <Badge key={techIndex} variant="outline" className="text-gray-300 border-gray-600">
+                    {project.technologies.map((tech, techIndex) => (
+                      <Badge 
+                        key={techIndex} 
+                        variant="outline" 
+                        className="text-gray-300 border-gray-600 hover:text-white hover:border-blue-400 hover:scale-105 transition-all duration-300"
+                      >
                         {tech}
-                      </Badge>)}
+                      </Badge>
+                    ))}
                   </div>
                   <div className="flex gap-4">
-                    <Button variant="outline" size="sm" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white">
+                    <Button variant="outline" size="sm" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white hover:scale-105 transition-all duration-300">
                       <Github className="w-4 h-4 mr-2" />
                       Code
                     </Button>
-                    <Button variant="outline" size="sm" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
+                    <Button variant="outline" size="sm" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white hover:scale-105 transition-all duration-300">
                       <Link className="w-4 h-4 mr-2" />
                       Demo
                     </Button>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -308,8 +366,8 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 section-padding bg-black/20">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 hover:scale-105 transition-transform duration-300">
               <span className="gradient-text">Get In Touch</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -318,29 +376,29 @@ const Index = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            <Card className="glass-effect">
+            <Card className="glass-effect animate-fade-in hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10" style={{ animationDelay: "0.2s" }}>
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <Mail className="w-6 h-6 text-purple-400" />
+                  <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300">
+                    <Mail className="w-6 h-6 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                     <div>
                       <p className="text-white font-medium">Email</p>
-                      <p className="text-gray-300">nirlepsanap2004@gmail.com</p>
+                      <p className="text-gray-300 group-hover:text-purple-400 transition-colors duration-300">nirlepsanap2004@gmail.com</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <Phone className="w-6 h-6 text-blue-400" />
+                  <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300">
+                    <Phone className="w-6 h-6 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
                     <div>
                       <p className="text-white font-medium">Phone</p>
-                      <p className="text-gray-300">+91 93214 48398</p>
+                      <p className="text-gray-300 group-hover:text-blue-400 transition-colors duration-300">+91 93214 48398</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <FileText className="w-6 h-6 text-pink-400" />
+                  <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300">
+                    <FileText className="w-6 h-6 text-pink-400 group-hover:scale-110 transition-transform duration-300" />
                     <div>
                       <p className="text-white font-medium">Resume</p>
-                      <Button variant="link" className="text-pink-400 hover:text-pink-300 p-0">
+                      <Button variant="link" className="text-pink-400 hover:text-pink-300 p-0 hover:scale-105 transition-all duration-300">
                         Download CV
                       </Button>
                     </div>
@@ -349,17 +407,17 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="glass-effect">
+            <Card className="glass-effect animate-fade-in hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10" style={{ animationDelay: "0.4s" }}>
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 gradient-text">Send a Message</h3>
                 <form onSubmit={handleContactSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Input placeholder="Your Name" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400" required />
-                    <Input type="email" placeholder="Your Email" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400" required />
+                    <Input placeholder="Your Name" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" required />
+                    <Input type="email" placeholder="Your Email" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" required />
                   </div>
-                  <Input placeholder="Subject" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400" required />
-                  <Textarea placeholder="Your Message" rows={5} className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400" required />
-                  <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white">
+                  <Input placeholder="Subject" className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" required />
+                  <Textarea placeholder="Your Message" rows={5} className="bg-white/5 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:scale-105 transition-all duration-300" required />
+                  <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25">
                     Send Message
                   </Button>
                 </form>
@@ -370,13 +428,14 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 section-padding border-t border-gray-800">
+      <footer className="py-8 section-padding border-t border-gray-800 animate-fade-in">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-400">
+          <p className="text-gray-400 hover:text-white transition-colors duration-300">
             © 2024 Nirlep Sanap. Built with React & TypeScript
           </p>
         </div>
       </footer>
     </div>;
 };
+
 export default Index;
