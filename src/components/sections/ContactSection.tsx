@@ -72,6 +72,10 @@ export const ContactSection = () => {
     }
   };
 
+  const handleDownloadCV = () => {
+    window.open('https://drive.google.com/file/d/1zaWVN3Tk_MCaVvGoXNNRGm4gTecpjrBd/view?usp=sharing', '_blank');
+  };
+
   return (
     <section id="contact" className="py-20 section-padding bg-black/20">
       <div className="max-w-7xl mx-auto">
@@ -107,7 +111,11 @@ export const ContactSection = () => {
                   <FileText className="w-6 h-6 text-pink-400 group-hover:scale-110 transition-transform duration-300" />
                   <div>
                     <p className="text-white font-medium">Resume</p>
-                    <Button variant="link" className="text-pink-400 hover:text-pink-300 p-0 hover:scale-105 transition-all duration-300">
+                    <Button 
+                      variant="link" 
+                      onClick={handleDownloadCV}
+                      className="text-pink-400 hover:text-pink-300 p-0 hover:scale-105 transition-all duration-300"
+                    >
                       Download CV
                     </Button>
                   </div>
