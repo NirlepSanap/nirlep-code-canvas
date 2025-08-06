@@ -41,10 +41,17 @@ export const PortfolioSection = () => {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <Button variant="outline" size="sm" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white hover:scale-105 transition-all duration-300">
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
+                  {project.githubLink && (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white hover:scale-105 transition-all duration-300"
+                      onClick={() => window.open(project.githubLink, '_blank')}
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </Button>
+                  )}
                   <Button variant="outline" size="sm" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white hover:scale-105 transition-all duration-300">
                     <Link className="w-4 h-4 mr-2" />
                     Demo

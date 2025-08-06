@@ -19,9 +19,10 @@ export const projectsData = [
     type: "Computer Vision"
   },
   {
-    title: "Inventory Management System",
-    description: "Full-stack application for optical lens inventory management with real-time tracking",
-    technologies: ["React.js", "Node.js", "MongoDB", "Express.js"],
-    type: "Full Stack"
+    title: "AI Site Suggester",
+    description: "AI-powered website suggestion tool that recommends optimal website structures and content based on user requirements",
+    technologies: ["React.js", "Node.js", "AI API", "Express.js"],
+    type: "AI/Automation",
+    githubLink: "https://github.com/NirlepSanap/ai-site-suggester.git"
   }
 ];
