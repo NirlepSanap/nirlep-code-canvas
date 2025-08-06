@@ -28,6 +28,21 @@ export const skillsData = [
 
 export const workExperienceData = [
   {
+    position: "Android Developer",
+    company: "LazyDeveloper Private Limited",
+    duration: "July 2025 - Present",
+    type: "Full-time",
+    responsibilities: [
+      "Translated comprehensive Figma UI designs into fully functional, responsive Flutter mobile applications",
+      "Applied Flutter's Material Design principles to ensure consistent and visually appealing user interfaces aligned with design specifications",
+      "Developed reusable custom widgets and implemented efficient state management across multiple application screens",
+      "Managed APK release builds for QA testing and production deployment",
+      "Collaborated closely with the design team to refine user interactions and deliver pixel-perfect UI implementations",
+      "Utilized Git and GitHub for version control, code management, and seamless team collaboration"
+    ],
+    technologies: ["Flutter", "Figma", "Firebase", "Android SDK"]
+  },
+  {
     position: "Full Stack Developer",
     company: "Agrawal Packers and Movers Ltd",
     duration: "Feb 2023 - July 2023",
