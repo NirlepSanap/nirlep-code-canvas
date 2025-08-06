@@ -10,13 +10,15 @@ export const projectsData = [
     title: "Movie Recommendation System",
     description: "ML-powered recommendation engine that suggests movies based on user preferences",
     technologies: ["Python", "Machine Learning", "Pandas", "Scikit-learn"],
-    type: "Machine Learning"
+    type: "Machine Learning",
+    githubLink: "https://github.com/NirlepSanap/movie-recommendation-system.git"
   },
   {
-    title: "Real-Time Object Detection",
-    description: "YOLO-based system for real-time object detection and classification",
+    title: "Real-Time Object Detection with Voice Feedback using YOLO",
+    description: "YOLO-based system for real-time object detection and classification with voice feedback integration",
     technologies: ["Python", "YOLO", "OpenCV", "Deep Learning"],
-    type: "Computer Vision"
+    type: "Computer Vision",
+    githubLink: "https://github.com/NirlepSanap/RT-Object_detection-with-Voice-Feedback-YOLO.git"
   },
   {
     title: "AI Site Suggester",
