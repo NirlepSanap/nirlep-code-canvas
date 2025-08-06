@@ -2,19 +2,19 @@
 export const skillsData = [
   {
     category: "Programming",
-    items: ["C", "C++", "Python", "R"]
+    items: ["C", "C++", "Python", "R", "Dart", "Java"]
   },
   {
     category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "React.js"]
+    items: ["HTML", "CSS", "JavaScript", "React.js", "Flutter UI", "React Native", "Next.js"]
   },
   {
     category: "Backend",
-    items: ["Node.js", "PHP", "Express.js"]
+    items: ["Node.js", "PHP", "Express.js", "Firebase", "Laravel", "Supabase", "Django", "Flask"]
   },
   {
     category: "ML & AI",
-    items: ["AI/ML Models", "Data Science", "YOLO"]
+    items: ["AI/ML Models", "Data Science", "YOLO", "NLP", "Deep Learning"]
   },
   {
     category: "API & Tools",
@@ -22,7 +22,7 @@ export const skillsData = [
   },
   {
     category: "Databases",
-    items: ["SQL", "MongoDB", "Database Design"]
+    items: ["SQL", "MongoDB", "Database Design", "Firestore", "MySQL", "Firebase Realtime Database"]
   }
 ];
 
