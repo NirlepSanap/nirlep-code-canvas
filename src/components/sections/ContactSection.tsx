@@ -93,18 +93,18 @@ export const ContactSection = () => {
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
               <div className="space-y-6">
-                <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300">
+                <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.open('mailto:nirlepsanap2004@gmail.com', '_blank')}>
                   <Mail className="w-6 h-6 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   <div>
                     <p className="text-white font-medium">Email</p>
-                    <p className="text-gray-300 group-hover:text-purple-400 transition-colors duration-300">nirlepsanap2004@gmail.com</p>
+                    <p className="text-gray-300 group-hover:text-purple-400 transition-colors duration-300 hover:underline">nirlepsanap2004@gmail.com</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300">
+                <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.open('tel:+919321448398', '_blank')}>
                   <Phone className="w-6 h-6 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
                   <div>
                     <p className="text-white font-medium">Phone</p>
-                    <p className="text-gray-300 group-hover:text-blue-400 transition-colors duration-300">+91 93214 48398</p>
+                    <p className="text-gray-300 group-hover:text-blue-400 transition-colors duration-300 hover:underline">+91 93214 48398</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300">
