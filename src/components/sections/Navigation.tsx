@@ -12,7 +12,7 @@ export const Navigation = ({ activeSection, scrollToSection }: NavigationProps) 
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold gradient-text animate-scale-in">Nirlep Sanap</div>
           <div className="hidden md:flex space-x-8">
-            {["Home", "About", "Services", "Portfolio", "Contact"].map((item, index) => (
+            {["Home", "About", "Portfolio", "Contact"].map((item, index) => (
               <button 
                 key={item} 
                 onClick={() => scrollToSection(item.toLowerCase())} 
