@@ -5,6 +5,7 @@ export const projectsData = [
     description: "A Python-based system that analyzes PCAP network traffic and generates forensic investigation reports.",
     technologies: ["Python", "PCAP Analysis", "SHA-256", "Network Forensics"],
     type: "Cybersecurity",
+    githubLink: "https://github.com/NirlepSanap/Network-Forensics-Report-Generator.git",
     highlights: ["Protocol analysis and top-talker identification", "SHA-256 integrity verification", "Rule-based threat detection aligned with SOC workflows"]
   },
   {
