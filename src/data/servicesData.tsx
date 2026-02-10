@@ -1,5 +1,5 @@
 
-import { Code, User, Database } from "lucide-react";
+import { Code, User, Database, Shield } from "lucide-react";
 
 export const servicesData = [
   {
@@ -9,12 +9,17 @@ export const servicesData = [
   },
   {
     icon: <User className="w-8 h-8" />,
-    title: "Machine Learning Projects",
-    description: "AI/ML solutions including recommendation systems and predictive models"
+    title: "AI & Machine Learning",
+    description: "AI-powered applications including computer vision, NLP, and recommendation systems"
+  },
+  {
+    icon: <Shield className="w-8 h-8" />,
+    title: "Cybersecurity & Digital Forensics",
+    description: "Threat detection, incident response, log analysis, and forensic documentation"
   },
   {
     icon: <Database className="w-8 h-8" />,
-    title: "Data Science & Analytics",
-    description: "Data analysis, visualization, and insights using Python, R, and modern data tools"
+    title: "AI Automation & Chatbots",
+    description: "Intelligent chatbots, workflow automation, and AI-driven business solutions"
   }
 ];

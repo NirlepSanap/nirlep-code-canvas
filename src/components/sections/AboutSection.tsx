@@ -13,7 +13,8 @@ export const AboutSection = () => {
             <span className="gradient-text">About Me</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-            A passionate and driven AI & Machine Learning student with hands-on experience in full-stack development
+            I'm a B.Tech undergraduate in Computer Science (AI & ML) with practical experience across AI/ML systems, 
+            full-stack development, and cybersecurity. I'm especially interested in roles where AI meets real-world impact.
           </p>
         </div>
 

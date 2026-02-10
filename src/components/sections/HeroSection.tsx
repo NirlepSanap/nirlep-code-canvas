@@ -13,15 +13,14 @@ export const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
         <div className="space-y-8 animate-fade-in">
           <div className="space-y-4">
             <h1 className="text-5xl lg:text-7xl font-bold">
-              <span className="gradient-text animate-gradient-shift">Full Stack Developer</span>
+              <span className="gradient-text animate-gradient-shift">Software Engineer</span>
               <br />
-              <span className="text-white animate-fade-in" style={{ animationDelay: "0.2s" }}>& Data Scientist</span>
-              <br />
-              <span className="text-gray-400 text-2xl lg:text-3xl animate-fade-in" style={{ animationDelay: "0.4s" }}></span>
+              <span className="text-white animate-fade-in text-2xl lg:text-3xl" style={{ animationDelay: "0.2s" }}>AIML • Full Stack • Cybersecurity</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl animate-fade-in" style={{ animationDelay: "0.6s" }}>
-              An energetic, honest, and self-motivated AI & Machine Learning student with a passion 
-              for creating innovative web solutions and intelligent systems.
+              I build AI-powered applications, scalable web platforms, and cybersecurity tools.
+              Currently specializing in Artificial Intelligence & Machine Learning, with hands-on experience 
+              in full-stack development and digital forensics.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.8s" }}>
