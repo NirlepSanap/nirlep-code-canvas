@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, FileText } from "lucide-react";
+import { Mail, Phone, FileText, Github, MapPin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
 
@@ -108,6 +108,20 @@ export const ContactSection = () => {
                   <div>
                     <p className="text-white font-medium">Phone</p>
                     <p className="text-gray-300 group-hover:text-blue-400 transition-colors duration-300 hover:underline">+91 93214 48398</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.open('https://github.com/nirlepsanap', '_blank')}>
+                  <Github className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform duration-300" />
+                  <div>
+                    <p className="text-white font-medium">GitHub</p>
+                    <p className="text-gray-300 group-hover:text-green-400 transition-colors duration-300 hover:underline">github.com/nirlepsanap</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300">
+                  <MapPin className="w-6 h-6 text-orange-400 group-hover:scale-110 transition-transform duration-300" />
+                  <div>
+                    <p className="text-white font-medium">Location</p>
+                    <p className="text-gray-300">Mumbai, Maharashtra</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 group hover:scale-105 transition-transform duration-300">

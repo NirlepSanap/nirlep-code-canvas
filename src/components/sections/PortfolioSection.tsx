@@ -14,7 +14,7 @@ export const PortfolioSection = () => {
             <span className="gradient-text">Featured Projects</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            A showcase of my recent work in web development and machine learning
+            A showcase of my recent work in AI/ML, cybersecurity, and web development
           </p>
         </div>
 
@@ -28,7 +28,16 @@ export const PortfolioSection = () => {
                     {project.type}
                   </Badge>
                 </div>
-                <p className="text-gray-300 mb-6 group-hover:text-white transition-colors duration-300">{project.description}</p>
+                <p className="text-gray-300 mb-4 group-hover:text-white transition-colors duration-300">{project.description}</p>
+                {project.highlights && (
+                  <ul className="text-sm text-gray-400 mb-4 space-y-1">
+                    {project.highlights.map((h: string, i: number) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-purple-400 mr-2">•</span>{h}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
                     <Badge 
