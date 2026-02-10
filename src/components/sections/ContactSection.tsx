@@ -73,10 +73,7 @@ export const ContactSection = () => {
   };
 
   const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/Nirlep_Resume.pdf';
-    link.download = 'Nirlep_Resume.pdf';
-    link.click();
+    window.open('https://drive.google.com/file/d/1LlW88KP0VsZIcX_CXFQEeJAPD7_kGzv0/view?usp=drive_link', '_blank');
   };
 
   return (
