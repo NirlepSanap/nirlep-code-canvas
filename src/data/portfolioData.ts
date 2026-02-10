@@ -32,10 +32,11 @@ export const projectsData = [
     highlights: ["Uses user preferences, viewing history, and ratings", "Improves engagement through intelligent recommendations"]
   },
   {
-    title: "AI Site Suggester",
-    description: "AI-powered website suggestion tool that recommends optimal website structures and content based on user requirements.",
-    technologies: ["React.js", "Node.js", "AI API", "Express.js"],
-    type: "AI/Automation",
-    githubLink: "https://github.com/NirlepSanap/ai-site-suggester.git"
+    title: "Digital Incident Response & Timeline Reconstruction System",
+    description: "A DFIR system to correlate Windows, network, and USB logs and reconstruct cyberattack timelines for incident analysis.",
+    technologies: ["Python", "DFIR", "Log Analysis", "Forensic Reporting"],
+    type: "Cybersecurity",
+    githubLink: "https://github.com/NirlepSanap/incident-response-timeline-forensics.git",
+    highlights: ["Correlates Windows, network, and USB logs", "Automated forensic reporting with evidence integrity validation", "Structured investigation outputs for incident analysis"]
   }
 ];
